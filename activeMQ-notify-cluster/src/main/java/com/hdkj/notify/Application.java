@@ -1,14 +1,18 @@
 package com.hdkj.notify;
 
+import java.io.IOException;
+
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.hdkj.notify.advance.Server;
+
 @SpringBootApplication
 public class Application {
-	// 启动方法
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws IOException {
 		SpringApplication.run(Application.class, args);
 	}
 	
@@ -16,19 +20,4 @@ public class Application {
     public ActiveMQQueue queue() {
        return new ActiveMQQueue("sample.queue");
     }
-	
-//	@Bean
-//    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-//        return args -> {
-//
-//            System.out.println("Let's inspect the beans provided by Spring Boot:");
-//
-//            String[] beanNames = ctx.getBeanDefinitionNames();
-//            Arrays.sort(beanNames);
-//            for (String beanName : beanNames) {
-//                System.out.println(beanName);
-//            }
-//
-//        };
-//    }
 }
